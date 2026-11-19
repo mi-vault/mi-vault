@@ -1,0 +1,36 @@
+name: Generate Snake
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?color_snake=black&color_dots=#d6c9c9,#d69c9c,#d60606,#800303,#4d0202
+            dist/ocean.gif?color_snake=black&color_dots=#d6c9c9,#d69c9c,#d60606,#800303,#4d0202
+
+      - name: Commit and Push
+        run: |
+          git config user.name "mi-vault"
+          git config user.email "asmisharma2026@gmail.com"
+          git add dist/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update snake graphics [skip ci]"
+            git push
+          fi
