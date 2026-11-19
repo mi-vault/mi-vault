@@ -1,0 +1,50 @@
+name: Generate Snake
+
+on:
+  schedule:
+    # Run every 12 hours
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Snake Animation
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.SNAKE_TOKEN || github.token }}
+          outputs: |
+            dist/ocean.gif?color_background=#eae4e4&color_snake=black&color_dots=#d6c9c9,#d69c9c,#d60606,#800303,#4d0202
+            dist/github-snake-dark.svg?color_background=#eae4e4&color_snake=black&color_dots=#d6c9c9,#d69c9c,#d60606,#800303,#4d0202
+
+      - name: Verify Snake Has Contributions
+        id: check
+        run: |
+          if grep -q "@keyframes c0" dist/github-snake-dark.svg; then
+            echo "animated=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::No contributions visible (check profile privacy or SNAKE_TOKEN); skipping push to preserve animated output."
+            echo "animated=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push Snake to Output Branch
+        if: steps.check.outputs.animated == 'true'
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
