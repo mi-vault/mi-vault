@@ -1,10 +1,19 @@
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=3000&pause=200&color=d60606&width=435&lines=Hi%2C+I'm+Asmi;Systems+Dev;C+%C2%B7+C%2B%2B+%C2%B7+Python" alt="Typing SVG"/>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=3000&pause=200&color=d60606&width=435&lines=Hi%2C+I'm+Asmi;Systems+%26+Web+Dev;C+%C2%B7+Python+%C2%B7+TypeScript" alt="Typing SVG"/>
 </a>
 
 ### Skills
 
-[![My Skills](https://skillicons.dev/icons?i=c,cpp,python,bash,linux,git,go,ts&theme=dark)](https://skillicons.dev)
+<p>
+  <img height="38" src="https://skillicons.dev/icons?i=c,cpp,python,ts,go,bash,react,nextjs,nestjs,tailwind,postgres,prisma,redis,docker&perline=14&theme=dark" alt="C, C++, Python, TypeScript, Go, Bash, React, Next.js, NestJS, Tailwind CSS, PostgreSQL, Prisma, Redis, Docker" />
+</p>
+<p>
+  <sub>
+    <b>Systems:</b> C · C++ · Python · Go · Bash<br>
+    <b>Web &amp; ERP:</b> TypeScript · Next.js · React · NestJS · Tailwind · Frappe · ERPNext<br>
+    <b>Data &amp; Infra:</b> PostgreSQL · Drizzle · Prisma · Redis · Docker · Turborepo
+  </sub>
+</p>
 
 ### Development Environments
 
@@ -28,8 +37,15 @@
 
 ### About me
 
-- 🧙🏼‍♂️ currently building [`mibicc`](https://github.com/mi-vault/mibicc) - a tiny C99 compiler, written in C
-- systems programming, compilers, database internals
+* 🧙🏼‍♂️ currently building [`mibicc`](https://github.com/mi-vault/mibicc): a tiny C99 compiler targeting Linux and Windows x64 ABIs
+* 🏗️ engineering custom **ERPNext & Frappe** systems and **Next.js, NestJS & PostgreSQL** platforms
+* 🧠 interests: systems programming, compilers, database internals
+
+<p>
+  <a href="mailto:asmisharma2026@gmail.com">
+    <img src="https://img.shields.io/badge/Email_Me-161b22?style=for-the-badge&logo=gmail&logoColor=d60606" alt="Email Me" />
+  </a>
+</p>
 
 <br>
 
